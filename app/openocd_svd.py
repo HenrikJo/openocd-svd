@@ -1,4 +1,4 @@
-#!/user/bin/env python3
+#!/usr/bin/env python3 
 
 """
 openocd-svd is a special Python GUI utility to access peripheral registers
