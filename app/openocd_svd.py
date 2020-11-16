@@ -14,6 +14,7 @@ import os
 import functools
 import threading
 import time
+import json
 from svd import SVDReader
 from openocd import OpenOCDTelnet
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QDialog, QWidget,
@@ -261,7 +262,13 @@ class MainWindow(QMainWindow):
 
     def connect_openocd(self):
         try:
-            self.openocd_tn.open()
+            if os.path.isfile("config.json"):
+                with open("config.json") as f:
+                    data = json.load(f)
+                    self.openocd_tn.open(host=data["ip-address"], port=data["port"])
+            else:
+                self.openocd_tn.open()
+
             self.ui.act_connect.setText("Disconnect OpenOCD")
             self.openocd_target = self.openocd_tn.get_target_name()
             self.openocd_target_pc = self.openocd_tn.get_target_pc()
