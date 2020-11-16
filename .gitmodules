@@ -1,0 +1,3 @@
+[submodule "lib/cmsis-svd"]
+	path = lib/cmsis-svd
+	url = git@github.com:posborne/cmsis-svd.git

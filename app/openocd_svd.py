@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 
 """
 openocd-svd is a special Python GUI utility to access peripheral registers
@@ -106,7 +106,7 @@ class MainWindow(QMainWindow):
     def handle_act_open_svd_triggered(self):
         options = QFileDialog.Options()
         fileName, _ = QFileDialog.getOpenFileName(self,
-                                                  "Open SVD file", "", "SVD Files (*.svd *.SVD *.xml)",
+                                                  "Open SVD file", "../lib/cmsis-svd/data/", "SVD Files (*.svd *.SVD *.xml)",
                                                   options=options)
         if fileName:
             self.open_svd_path(fileName)
